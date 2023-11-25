@@ -27,7 +27,14 @@ def showGbp():
 
 
 def showEuro():
-    pass
+    response = requests.get(url)
+    jsonResponse = response.json()
+    time = jsonResponse["time"]["updated"]
+    code = jsonResponse["bpi"]["EUR"]["code"]
+    rate = jsonResponse["bpi"]["EUR"]["rate"]
+
+    print(time, code, rate)
+
 
 while True:
     try:
